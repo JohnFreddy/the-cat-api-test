@@ -25,6 +25,10 @@ app.get("/", (req, res) => {
     });
 });
 
+app.use((req, res, next) => {
+    res.status(404).render('404');
+})
+
 const getData = async (url = "", req, res) => {
   return axios(url, {
     method: "get",
