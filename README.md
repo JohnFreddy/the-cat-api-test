@@ -13,3 +13,7 @@ From the command line run
 > npm install
 > npm run start
 ```
+Use EJS for a simple view.
+Use Vercel for deployment.
+
+Enjoy
