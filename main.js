@@ -3,22 +3,17 @@ const bodyparser = require("body-parser");
 const cors = require("cors");
 var axios = require("axios");
 var router = express.Router();
+const path = require('path');
 
 require("dotenv").config();
 
 const app = express();
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(cors({ origin: "*" }));
 app.use(bodyparser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-    layoutsDir: path.join(__dirname, '..', 'views', 'layouts'),
-    partialsDir: path.join(__dirname, '..', 'views', 'partials')}
-));
 
 app.get("/", (req, res) => {
     getData(
