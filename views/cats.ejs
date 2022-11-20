@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+</head>
+<body>
+<!-- non semantic targets -->
+<span class="targets" id="home"></span>
+  <% for (var i = 0; i < breeds.length; i++) { %>
+  <span class="targets" id="<%= breeds[i].id %>""></span>
+  <% } %>
+<!-- targets -->
+<div class="wrapper">
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#home" class="nav-link">Home</a>
+        <% for (var i = 0; i < breeds.length; i++) { %>
+          <li class="nav-item"><a href="<%= '#'+breeds[i].id %>" class="nav-link"><%= breeds[i].name %></a>
+        <% } %>
+    </ul>
+    <p class="footer">Made with ♡ By <a href="https://github.com/JohnFreddy" target="_blank">John Fredy</a></p>
+  </nav>
+  <div class="holder">
+    <div class="layout">
+      <section class="page page-home">
+        <h1 class="page-title">The CATS api Testing</h1>
+        <p class="desc">This is a test using: <a class="desc-link" href="https://thecatapi.com" target="_blank">https://thecatapi.com</a> to get the top 5 cat breeds that are child friendly,
+          stranger friendly and dog friendly!</p>
+      </section>
+      <% for (var i = 0; i < breeds.length; i++) { %>
+        <section class="page page-<%= breeds[i].id %>" style="top: <%= (i+1)*100 %>%">
+          <div class="card">
+            <div class="card-presentation">
+              <h1><%= breeds[i].name %></h1>
+              <b><%= breeds[i].origin %></b>
+              <p class="page-title"><%= breeds[i].description %></p>
+            </div>
+            <div class="card-image" style="background-image: url(<%= breeds[i].image %>)"></div>
+           
+          </div>
+          
+        </section>
+      <% } %>
+      
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
