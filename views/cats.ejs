@@ -32,14 +32,14 @@
           stranger friendly and dog friendly!</p>
       </section>
       <% for (var i = 0; i < breeds.length; i++) { %>
-        <section class="page page-<%= breeds[i].id %>" style="top: <%= (i+1)*100 %>%">
+        <section class="page page-<%= breeds[i].id %>" >
           <div class="card">
             <div class="card-presentation">
               <h1><%= breeds[i].name %></h1>
               <b><%= breeds[i].origin %></b>
               <p class="page-title"><%= breeds[i].description %></p>
             </div>
-            <div class="card-image" style="background-image: url(<%= breeds[i].image %>)"></div>
+            <div class="card-image" ></div>
            
           </div>
           
